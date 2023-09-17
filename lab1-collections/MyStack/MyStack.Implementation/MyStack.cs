@@ -136,12 +136,12 @@ namespace MyStack.Implementation
         /// <summary>
         /// Event handler for when an item is pushed onto the stack
         /// </summary>
-        public event EventHandler<T> ItemPushed;
+        public event EventHandler<T>? ItemPushed;
 
         /// <summary>
         /// Event handler for when the stack is cleared
         /// </summary>
-        public event EventHandler StackCleared;
+        public event EventHandler? StackCleared;
 
         /// <summary>
         /// Copies the elements to an Array, starting at particular Array index
