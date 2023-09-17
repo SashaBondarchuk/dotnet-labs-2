@@ -2,6 +2,9 @@
 
 namespace MyStack.Implementation
 {
+    /// <summary>
+    /// Linked list implementation of a generic stack.
+    /// </summary>
     public class MyStack<T> : ICollection, IEnumerable<T>
     {
         private int _size;
@@ -51,6 +54,7 @@ namespace MyStack.Implementation
                 currentHeadNode.Prev = newNode;
             }
             _size++;
+            ItemPushed?.Invoke(this, item);
         }
 
         /// <summary>
@@ -97,6 +101,8 @@ namespace MyStack.Implementation
         {
             _size = 0;
             _head = null;
+
+            StackCleared?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -126,6 +132,16 @@ namespace MyStack.Implementation
         public bool IsSynchronized => false;
 
         public object SyncRoot => this;
+
+        /// <summary>
+        /// Event handler for when an item is pushed onto the stack
+        /// </summary>
+        public event EventHandler<T> ItemPushed;
+
+        /// <summary>
+        /// Event handler for when the stack is cleared
+        /// </summary>
+        public event EventHandler StackCleared;
 
         /// <summary>
         /// Copies the elements to an Array, starting at particular Array index
