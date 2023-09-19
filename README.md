@@ -3,4 +3,4 @@
 
 Report links here.
 
-lab 1: 
+lab 1: https://docs.google.com/document/d/1GqwwEBkPwRxfs6IOTkgvMUVjlRTTWzH84lCow6eWd9w/edit?usp=sharing
