@@ -200,11 +200,15 @@ namespace MyStack.Implementation
 
             T[] objArray = new T[_size];
             int i = 0;
-            while (_size > 0)
+            MyLinkedListNode<T>? currentNode = _head;
+
+            while (currentNode is not null)
             {
-                objArray[i] = Pop();
+                objArray[i] = currentNode.Data;
                 i++;
+                currentNode = currentNode.Next;
             }
+
             return objArray;
         }
 
