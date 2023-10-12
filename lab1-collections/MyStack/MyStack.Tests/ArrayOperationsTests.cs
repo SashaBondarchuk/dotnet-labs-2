@@ -126,5 +126,25 @@
 
             Assert.Throws<ArgumentNullException>(() => _stack.CopyTo(array, 0));
         }
+
+        [Test]
+        public void CopyTo_NegativeSize_ThrowsException()
+        {
+            _stack.Clear();
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                _stack.CopyTo(new int[_stack.Count], 0);
+            });
+        }
+
+        [Test]
+        public void CopyTo_InvalidArrayType_ThrowsException()
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                _stack.CopyTo(new object[_stack.Count], 0);
+            });
+        }
     }
 }
