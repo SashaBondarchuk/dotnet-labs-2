@@ -159,6 +159,11 @@ namespace MyStack.Implementation
                 throw new ArgumentNullException(nameof(array));
             }
 
+            if (_size <= 0)
+            {
+                MyStack<T>.ThrowForEmptyStack();
+            }
+
             if (index < 0 || index >= array.Length)
             {
                 throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
@@ -167,11 +172,6 @@ namespace MyStack.Implementation
             if (array.Length - index < _size)
             {
                 throw new ArgumentException("The destination array has insufficient space.");
-            }
-
-            if (_size < 0)
-            {
-                MyStack<T>.ThrowForEmptyStack();
             }
 
             if (array is not T[] typedArray)
