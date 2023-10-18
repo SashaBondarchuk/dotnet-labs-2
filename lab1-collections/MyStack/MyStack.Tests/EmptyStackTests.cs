@@ -69,12 +69,7 @@
             int[] arrayCopy = new int[arraySize];
             array.CopyTo(arrayCopy, startIndexPosition);
 
-            _stack.CopyTo(array, startIndexPosition);
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                Assert.That(array[i], Is.EqualTo(arrayCopy[i]));
-            }
+            Assert.Throws<InvalidOperationException>(() => _stack.CopyTo(array, startIndexPosition));
         }
 
         [Test]
