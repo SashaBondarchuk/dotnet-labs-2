@@ -55,7 +55,7 @@ namespace Restaurant.DAL.Context.Extensions
             modelBuilder.Entity<Portion>().HasData(portionsEntities);
 
             var ordersItemsEntities = GenerateOrderItems(ordersEntities);
-            modelBuilder.Entity<OrderItem>().HasData(ordersItemsEntities); 
+            modelBuilder.Entity<OrderItem>().HasData(ordersItemsEntities);
         }
 
         private static ICollection<Portion> GeneratePortions(ICollection<Dish> dishesEntities)

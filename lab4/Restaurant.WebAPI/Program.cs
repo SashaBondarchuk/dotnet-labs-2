@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddRestaurantDbContext(builder.Configuration);
+builder.Services.RegisterRepositories();
 builder.Services.RegisterCustomServices();
 builder.Services.AddAutoMapper();
 

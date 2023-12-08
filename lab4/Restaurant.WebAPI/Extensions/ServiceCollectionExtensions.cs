@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Restaurant.BLL.Interfaces;
+using Restaurant.BLL.Services;
 using Restaurant.DAL.Context;
-using System.Reflection;
+using Restaurant.DAL.Repository;
+using Restaurant.DAL.Repository.Interfaces;
 
 namespace Restaurant.WebAPI.Extensions
 {
@@ -17,7 +20,18 @@ namespace Restaurant.WebAPI.Extensions
 
         public static void RegisterCustomServices(this IServiceCollection services)
         {
+            services.AddScoped<IIngredientsService, IngredientsService>();
 
+        }
+
+        public static void RegisterRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IDishesRepository, DishesRepository>();
+            services.AddScoped<IDishIngredientsRepository, DishIngredientsRepository>();
+            services.AddScoped<IIngredientsRepository, IngredientsRepository>();
+            services.AddScoped<IOrderItemsRepository, OrderItemsRepository>();
+            services.AddScoped<IPortionsRepository, PortionsRepository>();
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)
