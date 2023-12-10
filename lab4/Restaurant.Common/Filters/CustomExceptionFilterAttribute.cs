@@ -10,7 +10,6 @@ namespace Restaurant.Common.Filters
         public override void OnException(ExceptionContext context)
         {
             var (statusCode, errorCode) = context.Exception.ParseException();
-            Console.WriteLine(2);
 
             context.HttpContext.Response.ContentType = "application/json";
             context.HttpContext.Response.StatusCode = (int)statusCode;

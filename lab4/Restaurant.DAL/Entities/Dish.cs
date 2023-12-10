@@ -7,7 +7,6 @@ namespace Restaurant.DAL.Entities
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public ICollection<DishIngredient> DishIngredients { get; } = new List<DishIngredient>();
         public ICollection<Ingredient> Ingredients { get; } = new List<Ingredient>();
         public ICollection<Portion> Portions { get; } = new List<Portion>();
 
