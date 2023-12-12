@@ -12,6 +12,10 @@ namespace Restaurant.DAL.Repository.Interfaces
 
         Task AddAsync(TEntity entity);
 
+        Task AddRangeAsync(IEnumerable<TEntity> entities);
+
+        void DeleteRange(IEnumerable<TEntity> entities);
+
         void Delete(TEntity entity);
 
         Task SaveAsync();

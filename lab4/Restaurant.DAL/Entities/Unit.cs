@@ -6,8 +6,6 @@ namespace Restaurant.DAL.Entities
     {
         public string Name { get; set; }
 
-        public ICollection<Portion> Portions { get; } = new List<Portion>();
-
         public Unit(string name)
         {
             Name = name;
