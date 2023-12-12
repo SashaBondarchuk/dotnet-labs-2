@@ -33,6 +33,16 @@ namespace Restaurant.DAL.Repository
             await _context.Set<TEntity>().AddAsync(entity);
         }
 
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
+        {
+            await _context.Set<TEntity>().AddRangeAsync(entities);
+        }
+
+        public void DeleteRange(IEnumerable<TEntity> entities)
+        {
+            _context.Set<TEntity>().RemoveRange(entities);
+        }
+
         public void Delete(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);

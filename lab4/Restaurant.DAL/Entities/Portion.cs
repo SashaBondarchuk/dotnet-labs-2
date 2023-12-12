@@ -13,8 +13,6 @@ namespace Restaurant.DAL.Entities
         public Dish? Dish { get; set; }
         public Unit? Unit { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; } = new List<OrderItem>();
-
         public Portion(string description)
         {
             Description = description;

@@ -23,12 +23,10 @@ namespace Restaurant.DAL.Context.Extensions
                 .WithMany(e => e.Portions);
 
             modelBuilder.Entity<Portion>()
-                .HasOne(e => e.Unit)
-                .WithMany(e => e.Portions);
+                .HasOne(e => e.Unit);
 
             modelBuilder.Entity<OrderItem>()
-                .HasOne(e => e.Portion)
-                .WithMany(e => e.OrderItems);
+                .HasOne(e => e.Portion);
 
             modelBuilder.Entity<Order>()
                 .HasMany(e => e.OrderItems)

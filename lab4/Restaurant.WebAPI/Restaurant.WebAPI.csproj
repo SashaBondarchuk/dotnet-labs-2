@@ -19,10 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.BLL\Restaurant.BLL.csproj" />
     <ProjectReference Include="..\Restaurant.DAL\Restaurant.DAL.csproj" />
   </ItemGroup>
 
