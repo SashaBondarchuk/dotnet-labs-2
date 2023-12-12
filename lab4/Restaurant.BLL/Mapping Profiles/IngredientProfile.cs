@@ -8,7 +8,7 @@ namespace Restaurant.BLL.Mapping_Profiles
     {
         public IngredientProfile()
         {
-            CreateMap<Ingredient, IngredientDto>();
+            CreateMap<Ingredient, IngredientDto>().ReverseMap();
 
             CreateMap<NewIngredientDto, Ingredient>();
 

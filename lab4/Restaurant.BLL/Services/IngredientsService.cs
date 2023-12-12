@@ -20,16 +20,15 @@ namespace Restaurant.BLL.Services
         public async Task<IEnumerable<IngredientDto>> GetAllIngredientsAsync()
         {
             var ingredients = await _ingredientsRepository.GetAllAsync();
+
             return _mapper.Map<IEnumerable<IngredientDto>>(ingredients);
         }
 
         public async Task<IngredientDto> GetIngredientByIdAsync(int id)
         {
-            var ingredient = await _ingredientsRepository.FindByIdAsync(id);
+            var ingredient = await FindIngredientByIdOrThrowAsync(id);
 
-            return ingredient is null 
-                ? throw new NotFoundException(nameof(Ingredient)) 
-                : _mapper.Map<IngredientDto>(ingredient);
+            return _mapper.Map<IngredientDto>(ingredient);
         }
 
         public async Task<IngredientDto> AddIngredientAsync(NewIngredientDto newIngredient)
@@ -44,8 +43,7 @@ namespace Restaurant.BLL.Services
 
         public async Task UpdateIngredientAsync(int id, UpdateIngredientDto ingredientToUpdate)
         {
-            var ingredient = await _ingredientsRepository.FindByIdAsync(id)
-                ?? throw new NotFoundException(nameof(Ingredient));
+            var ingredient = await FindIngredientByIdOrThrowAsync(id);
 
             ingredient.Description = ingredientToUpdate.Description;
             ingredient.Name = ingredientToUpdate.Name;
@@ -55,11 +53,18 @@ namespace Restaurant.BLL.Services
 
         public async Task DeleteIngredientAsync(int id)
         {
-            var ingredient = await _ingredientsRepository.FindByIdAsync(id)
-               ?? throw new NotFoundException(nameof(Ingredient));
+            var ingredient = await FindIngredientByIdOrThrowAsync(id);
 
             _ingredientsRepository.Delete(ingredient);
             await _ingredientsRepository.SaveAsync();
+        }
+
+        private async Task<Ingredient> FindIngredientByIdOrThrowAsync(int id)
+        {
+            var ingredient = await _ingredientsRepository.FindByIdAsync(id)
+                ?? throw new NotFoundException(nameof(Ingredient));
+
+            return ingredient;
         }
     }
 }
