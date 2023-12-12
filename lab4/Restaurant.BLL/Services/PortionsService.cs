@@ -29,7 +29,7 @@ namespace Restaurant.BLL.Services
         public async Task<IEnumerable<PortionDto>> GetDishPortionsById(int dishId)
         {
             var portions = await _portionsRepository.GetDishPortionsByIdAsync(dishId);
-            
+
             return _mapper.Map<IEnumerable<PortionDto>>(portions);
         }
 

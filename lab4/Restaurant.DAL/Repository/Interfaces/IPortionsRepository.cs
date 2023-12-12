@@ -1,5 +1,4 @@
-﻿using Restaurant.Common.DTOs.Portion;
-using Restaurant.DAL.Entities;
+﻿using Restaurant.DAL.Entities;
 
 namespace Restaurant.DAL.Repository.Interfaces
 {

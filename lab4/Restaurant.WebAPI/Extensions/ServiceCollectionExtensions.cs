@@ -23,7 +23,9 @@ namespace Restaurant.WebAPI.Extensions
         public static void RegisterCustomServices(this IServiceCollection services)
         {
             services.AddScoped<IIngredientsService, IngredientsService>();
-
+            services.AddScoped<IDishesService, DishesService>();
+            services.AddScoped<IPortionsService, PortionsService>();
+            services.AddScoped<IOrdersService, OrdersService>();
         }
 
         public static void RegisterRepositories(this IServiceCollection services)
