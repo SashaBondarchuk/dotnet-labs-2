@@ -17,5 +17,7 @@ namespace Restaurant.DAL.Entities
         {
             Description = description;
         }
+
+        public Portion() { }
     }
 }
