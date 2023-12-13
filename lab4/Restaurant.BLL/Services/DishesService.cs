@@ -40,21 +40,19 @@ namespace Restaurant.BLL.Services
 
         public async Task<DishDto> AddDishAsync(NewDishDto newDish)
         {
-            if (newDish.Ingredients is null)
-            {
-                throw new BadOperationException("All fields are required");
-            }
-
             var dish = _mapper.Map<Dish>(newDish);
 
             await _dishesRepository.AddAsync(dish);
             await _dishesRepository.SaveAsync();
 
-            var dishIngredients = _mapper.Map<IEnumerable<Ingredient>>(newDish.Ingredients)
+            if (newDish.Ingredients is not null)
+            {
+                var dishIngredients = _mapper.Map<IEnumerable<Ingredient>>(newDish.Ingredients)
                 .Select(ing => new DishIngredient { DishId = dish.Id, IngredientId = ing.Id }).ToList();
 
-            await _dishIngredientsRepository.AddRangeAsync(dishIngredients);
-            await _dishIngredientsRepository.SaveAsync();
+                await _dishIngredientsRepository.AddRangeAsync(dishIngredients);
+                await _dishIngredientsRepository.SaveAsync();
+            }            
 
             return _mapper.Map<DishDto>(dish);
         }

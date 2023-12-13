@@ -26,9 +26,9 @@ namespace Restaurant.Tests.UnitTests.DAL
 
             var sampleDish = new Dish("Sample Dish", "Sample Description");
             var sampleIngredient = new Ingredient("Sample Ingredient", "Sample Ingredient Description");
-            
+
             sampleDish.Ingredients.Add(sampleIngredient);
-            
+
             await repository.AddAsync(sampleDish);
             await repository.SaveAsync();
 
@@ -50,9 +50,9 @@ namespace Restaurant.Tests.UnitTests.DAL
 
             var sampleDish = new Dish("Sample Dish", "Sample Description");
             var sampleIngredient = new Ingredient("Sample Ingredient", "Sample Ingredient Description");
-            
+
             sampleDish.Ingredients.Add(sampleIngredient);
-            
+
             await repository.AddAsync(sampleDish);
             await repository.SaveAsync();
 

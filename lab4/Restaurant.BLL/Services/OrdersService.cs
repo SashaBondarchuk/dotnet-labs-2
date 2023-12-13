@@ -80,6 +80,7 @@ namespace Restaurant.BLL.Services
             if (orderToUpdate.Status is OrderStatusDto.Cancelled)
             {
                 await DeleteOrderAsync(id);
+                return;
             }
 
             order.Status = (OrderStatus)orderToUpdate.Status;
