@@ -1,6 +1,4 @@
-﻿using System.Net;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +7,8 @@ using Newtonsoft.Json;
 using Restaurant.Common.DTOs.Dish;
 using Restaurant.DAL.Context;
 using Restaurant.WebAPI;
+using System.Net;
+using System.Text;
 
 namespace Restaurant.Tests.IntegrationTests
 {

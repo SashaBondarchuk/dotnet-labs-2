@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Newtonsoft.Json;
 using Restaurant.Common.DTOs.Ingredient;
 using Restaurant.DAL.Context;
+using Restaurant.DAL.Entities;
 using Restaurant.WebAPI;
 using System.Net;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.EntityFrameworkCore;
-using Restaurant.DAL.Entities;
 using System.Text;
 
 namespace Restaurant.Tests.IntegrationTests

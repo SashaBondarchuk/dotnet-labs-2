@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Newtonsoft.Json;
-using Restaurant.Common.DTOs.Ingredient;
+using Restaurant.Common.DTOs.Order;
+using Restaurant.Common.DTOs.OrderItem;
 using Restaurant.DAL.Context;
 using Restaurant.WebAPI;
 using System.Net;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.EntityFrameworkCore;
-using Restaurant.DAL.Entities;
 using System.Text;
-using Restaurant.Common.DTOs.Order;
-using Restaurant.Common.DTOs.OrderItem;
 
 namespace Restaurant.Tests.IntegrationTests
 {

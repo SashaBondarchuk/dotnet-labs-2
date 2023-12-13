@@ -52,7 +52,7 @@ namespace Restaurant.BLL.Services
 
                 await _dishIngredientsRepository.AddRangeAsync(dishIngredients);
                 await _dishIngredientsRepository.SaveAsync();
-            }            
+            }
 
             return _mapper.Map<DishDto>(dish);
         }
